@@ -3,19 +3,17 @@ import styles from "./style";
 import { useDispatch, useSelector } from "react-redux";
 import { Router, useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
-import localJSONData from "../../dataJSON/data.json";
 import { getPosts } from "../../API/api";
 
 const Form = ({ currentID, setCurrentID }) => {
   const [postData, setPostData] = useState({
-    id:"",
+    id:0,
     name: "",
     email: "",
     city: "TestCity",
     username:""
   });
   let params = useParams();
-  console.log("JSON data",localJSONData);
   const post = useSelector((state) =>
     params.id ? state.mainlist.find((p) => p.id == params.id) : null
   );
